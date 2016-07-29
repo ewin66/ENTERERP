@@ -21,7 +21,7 @@ namespace EnterERP.Module.BusinessObjects
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     [DefaultListViewOptions(MasterDetailMode.ListViewAndDetailView, true, NewItemRowPosition.Bottom)]
     [Appearance("Completed1", TargetItems = "*",Criteria = "Finalizado = true", FontStyle = FontStyle.Strikeout, FontColor = "ForestGreen")]
-    [Appearance("PorCompletar", TargetItems = "Descripcion", Criteria = "Finalizado = false", FontStyle = FontStyle.Bold, FontColor = "Black",BackColor ="LightBlue")]
+    [Appearance("PorCompletar", TargetItems = "*", Criteria = "Finalizado = false", FontColor = "Black",BackColor ="LightBlue")]
 
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
