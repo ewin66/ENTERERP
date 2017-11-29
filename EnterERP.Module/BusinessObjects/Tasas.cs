@@ -83,13 +83,14 @@ namespace EnterERP.Module.BusinessObjects
         //}
 
 
-        [Action(Caption = "Obtener Tasas desde Pagina Web", ConfirmationMessage = "Esta Seguro?", ImageName = "Attention", AutoCommit = true,TargetObjectsCriteria ="Moneda.Codigo='USD'")]
+        [Action(Caption = "Obtener Tasas desde Pagina Web", ConfirmationMessage = "Esta Seguro?", ImageName = "Attention", AutoCommit = true, TargetObjectsCriteria = "Moneda.Codigo='USD'")]
         public void ActionMethod()
         {
             // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
             //this.Name = "Paid";
             string buyrate = "";
             string salerate = "";
+
 
             System.Data.DataSet xmlDataSet = new System.Data.DataSet("XML DataSet");
             // Load the XML document to the DataSet

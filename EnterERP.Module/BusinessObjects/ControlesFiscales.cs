@@ -47,6 +47,14 @@ namespace EnterERP.Module.BusinessObjects
             }
         }
 
+        string puntoDeEmision;
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string PuntoDeEmision
+        {
+            get { return puntoDeEmision; }
+            set { SetPropertyValue("PuntoDeEmision", ref puntoDeEmision, value); }
+        }
+
         string sucursal;
         [RuleRequiredField]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]

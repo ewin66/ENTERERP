@@ -15,6 +15,7 @@ using DevExpress.Persistent.Validation;
 namespace EnterERP.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Cuentas por Cobrar")]
     [XafDisplayName("Conceptos de Cuentas por Cobrar")]
     [XafDefaultProperty("Concepto")]
     //[ImageName("BO_Contact")]

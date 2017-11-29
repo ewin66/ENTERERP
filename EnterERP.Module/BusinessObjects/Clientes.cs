@@ -16,6 +16,7 @@ namespace EnterERP.Module.BusinessObjects
 {
     [DefaultClassOptions]
     [ImageName("BO_Contact")]
+    [NavigationItem("Cuentas por Cobrar")]
     [DefaultProperty("Nombre")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -44,6 +45,14 @@ namespace EnterERP.Module.BusinessObjects
             {
                 SetPropertyValue("Nombre", ref nombre, value);
             }
+        }
+
+        string nombreAbreviado;
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string NombreAbreviado
+        {
+            get { return nombreAbreviado; }
+            set { SetPropertyValue("NombreAbreviado", ref nombreAbreviado, value); }
         }
 
         string rTN;
@@ -142,6 +151,29 @@ namespace EnterERP.Module.BusinessObjects
             }
         }
 
+        decimal saldoPendiente;
+        [PersistentAlias("Iif(CXCDocumentos.Count>0,CXCDocumentos.Sum([SaldoPendiente]),0.00)")]
+        public decimal SaldoPendiente
+        {
+            get {
+
+
+                try { return (decimal)EvaluateAlias("SaldoPendiente"); }
+                catch { return 0; }
+
+            }
+            //saldoPendiente; }
+        }
+
+        [Association(@"Clientes-Pendientes")]
+        [XafDisplayName("Requerimientos")]
+        public XPCollection<Pendientes> PendientesClientes
+        {
+            get
+            {
+                return GetCollection<Pendientes>("PendientesClientes");
+            }
+        }
 
         [Association("Clientes-CXCDocumentos")]
         [XafDisplayName("Movimientos Cuentas por Cobrar")]
@@ -150,6 +182,29 @@ namespace EnterERP.Module.BusinessObjects
             get
             {
                 return GetCollection<CXCDocumentos>("CXCDocumentos");
+            }
+        }
+
+
+        [XafDisplayName("Movimientos Cuentas por Cobrar Pendientes")]
+        public XPCollection<CXCDocumentos> CXCDocumentosPendientes
+        {
+            get
+            {
+
+                XPCollection<CXCDocumentos> cxcdoc = GetCollection<CXCDocumentos>("CXCDocumentos");
+                cxcdoc.Criteria = CriteriaOperator.Parse("Cliente=? and SaldoPendiente>0",this);
+                return cxcdoc;
+            }
+        }
+
+        [Association("Clientes-Contactos")]
+        [XafDisplayName("Contactos")]
+        public XPCollection<Contactos> ContactosClientes
+        {
+            get
+            {
+                return GetCollection<Contactos>("ContactosClientes");
             }
         }
         //private string _PersistentProperty;

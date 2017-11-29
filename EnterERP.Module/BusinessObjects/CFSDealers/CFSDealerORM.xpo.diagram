@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<visualDesignerDiagram dslVersion="1.0.0.0" Id="f1647070-dc1e-4cce-a712-f73118a75672" absoluteBounds="0, 0, 11, 8.5" name="CFSDealerORM">
+  <dataBaseObjectModelMoniker Id="5e69c209-3687-442a-9c91-1074560f68ab" />
+  <nestedChildShapes>
+    <xpObjectShape Id="001b781b-53db-4488-bade-bcf9df01d143" absoluteBounds="1.125, 0.75, 1.5, 6.3703076171874988">
+      <xpObjectMoniker Id="6d5687ae-0072-4112-b2b5-fbc3c4587255" />
+      <nestedChildShapes>
+        <elementListCompartment Id="702df4b0-d292-49c9-bb02-5d894aecc831" absoluteBounds="1.1400000000000001, 1.06, 1.4700000000000002, 5.4415283203125" name="Fields" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="5f8b0ef2-a7c9-4a34-a2ea-e6700233c861" absoluteBounds="1.1400000000000001, 6.5115283203124994, 1.4700000000000002, 0.2493896484375" name="Indexes" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d45146c1-98c1-4361-b18b-143807aa6956" absoluteBounds="1.1400000000000001, 6.7709179687499992, 1.4700000000000002, 0.2493896484375" name="Collections" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </xpObjectShape>
+  </nestedChildShapes>
+</visualDesignerDiagram>

@@ -16,7 +16,7 @@ using System.Globalization;
 namespace EnterERP.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    [ImageName("BO_File")]
+    [NavigationItem("Transacciones")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]

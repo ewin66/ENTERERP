@@ -11,17 +11,19 @@ using System.Collections.Generic;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
+using static EnterERP.Module.BusinessObjects.CXCConceptos;
 
 namespace EnterERP.Module.BusinessObjects
 {
  
     [DefaultClassOptions]
+    [NavigationItem("Cuentas por Cobrar")]
     [DefaultProperty("Documento")]
     [XafDisplayName("Movimientos de Cuentas por Cobrar")]
     [ModelDefault("IsCloneable", "True")]
     [ModelDefault("IsViewClonable", "True")]
     [ModelDefault("EnableUnboundColumnCreation", "True")]
-
+    [ImageName("BO_Invoice")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -46,7 +48,7 @@ namespace EnterERP.Module.BusinessObjects
         {
             if (propertyName == "Moneda")
             {
-                Tasas tasa = Session.FindObject<Tasas>(CriteriaOperator.Parse("Codigo='" + Moneda.Codigo + "' and Fecha='" + Fecha.ToShortDateString() + "'"));
+                Tasas tasa = Session.FindObject<Tasas>(CriteriaOperator.Parse("Codigo='" + Moneda.Codigo + "' and GetDate(Fecha)='" + Fecha.ToString("yyyyMMdd") + "'"));
                 if (tasa != null)
                 {
 
@@ -74,7 +76,7 @@ namespace EnterERP.Module.BusinessObjects
         private FileData _Adjunto;
         private DateTime _Vence;
         private Clientes _Cliente;
-        private CXCConceptos _ConceptoCXC;
+        private CXCConceptos _Concepto;
         private decimal _Monto;
         private DateTime _Fecha;
         private Monedas _Moneda;
@@ -94,10 +96,10 @@ namespace EnterERP.Module.BusinessObjects
         [RuleRequiredField(DefaultContexts.Save)]
         [ImmediatePostData]
         //[XafDisplayName("Concepto por Aplicar")]
-        public CXCConceptos ConceptoCXC
+        public CXCConceptos Concepto
         {
-            get { return _ConceptoCXC; }
-            set { SetPropertyValue("ConceptoCXC", ref _ConceptoCXC, value); }
+            get { return _Concepto; }
+            set { SetPropertyValue("Concepto", ref _Concepto, value); }
         }
         [ImmediatePostData]
         [Association("Clientes-CXCDocumentos")]
@@ -203,7 +205,7 @@ namespace EnterERP.Module.BusinessObjects
 
 
         [RuleRequiredField(DefaultContexts.Save)]
-        [ModelDefault("EditMask", "###0.##"), VisibleInListView(true)]
+        [ModelDefault("EditMask", "n2"), VisibleInListView(true)]
         [ModelDefault("DisplayFormat", "{0:n2}")]
         public decimal Monto
         {
@@ -231,6 +233,133 @@ namespace EnterERP.Module.BusinessObjects
             set { SetPropertyValue("Adjunto", ref _Adjunto, value); }
         }
 
+
+        [PersistentAlias("Iif(Len(Concepto.Tipo)>0,Concepto.Tipo,'')")]
+        public TipoConcepto TipoMov
+        {
+            get
+            {
+                try
+                {
+                    return (TipoConcepto)EvaluateAlias("TipoMov");
+                }
+                catch { return TipoConcepto.Debito; }
+            }
+        }
+
+        [PersistentAlias("Iif(TipoMov='Debito',[Monto],0.00)")]
+        public decimal Debito
+        {
+            get
+            {
+                try
+                {
+                    return (decimal)EvaluateAlias("Debito");
+                }
+                catch { return 0; }
+            }
+        }
+        [PersistentAlias("Iif(TipoMov='Credito',[Monto],0.00)")]
+        public decimal Credito
+        {
+            get
+            {
+                try
+                {
+                    return (decimal)EvaluateAlias("Credito");
+                }
+                catch { return 0; }
+            }
+        }
+
+        [PersistentAlias("Iif(TipoMov='Debito',[Monto]*Factor,0.00)")]
+        public decimal DebitoLocal
+        {
+            get
+            {
+                try
+                {
+                    return (decimal)EvaluateAlias("DebitoLocal");
+                }
+                catch { return 0; }
+            }
+        }
+        [PersistentAlias("Iif(TipoMov='Credito',[Monto]*Factor,0.00)")]
+        public decimal CreditoLocal
+        {
+            get
+            {
+                try
+                {
+                    return (decimal)EvaluateAlias("CreditoLocal");
+                }
+                catch { return 0; }
+            }
+        }
+
+        [PersistentAlias("Monto*Factor")]
+        [ModelDefault("EditMask", "n2"), VisibleInListView(true)]
+        [ModelDefault("DisplayFormat", "{0:n2}")]
+        public decimal MontoLocal
+        {
+            get
+            {
+
+                    return (decimal)EvaluateAlias("MontoLocal");
+                
+            }
+        }
+
+
+        [XafDisplayName("Pagos Realizados")]
+        public XPCollection<CXCDocumentos> CXCDoHijosCollection {
+            get {
+
+              
+
+                    XPCollection<CXCDocumentos> xpcol = new XPCollection<CXCDocumentos>(Session);
+                    xpcol.Criteria = CriteriaOperator.Parse("Monto>0 and Concepto.Tipo=2 and Aplica=?", Aplica);
+                    //return GetCollection<AjusteDeCafe>("AjustesPositivosCollection");
+                    return xpcol;
+              
+
+                
+            }
+        }
+
+        decimal saldoPendiente;
+        public decimal SaldoPendiente
+        {
+            get
+            {
+                decimal pagos = 0;
+                decimal totalpagar = 0;
+                try
+                {
+                    if (Debito > 0)
+                    {
+                        if (CXCDoHijosCollection.Count > 0)
+                        {
+                            foreach (CXCDocumentos cxc in CXCDoHijosCollection)
+                            {
+                                pagos += cxc.CreditoLocal;
+                            }
+                        }
+                    }
+
+                   totalpagar = DebitoLocal - pagos;
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+
+                return totalpagar;
+            }
+            
+        }
+
+
         //private string _PersistentProperty;
         //[XafDisplayName("My display name"), ToolTip("My hint message")]
         //[ModelDefault("EditMask", "(000)-00"), Index(0), VisibleInListView(false)]
@@ -245,5 +374,23 @@ namespace EnterERP.Module.BusinessObjects
         //    // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
         //    this.PersistentProperty = "Paid";
         //}
+
+        [Action(Caption = "Abonar cuenta por cobrar ", ConfirmationMessage = "Abonar Factura?", ImageName = "Attention", AutoCommit = true)]
+        public void CXCMethod()
+        {
+            CXCDocumentos doccxc = new CXCDocumentos(Session);
+            doccxc.Cliente = Cliente;
+            doccxc.Referencia = Referencia;
+            doccxc.Aplica = Aplica;
+            doccxc.Fecha = Fecha;
+            doccxc.Vence = Fecha;
+            doccxc.Monto = Monto;
+            doccxc.Moneda = Moneda;
+            doccxc.Factor = Factor;
+            doccxc.Concepto = Session.FindObject<CXCConceptos>(CriteriaOperator.Parse("Concepto='ABONO'"));
+            doccxc.Observaciones = "Cuentas por Cobrar de la Factura: " + Aplica + " del Cliente: " + Cliente.Nombre;
+        }
+
+
     }
 }

@@ -1,3 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application>
+<Application Logo="BO_Sale_Item">
+  <NavigationItems DefaultLeafImageName="Action_New" DefaultParentImageName="ModelEditor_Action_Modules" ShowImages="True" StartupNavigationItem="Pendientes_ListView" />
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="16.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerAspNetModule" Version="16.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerModuleBase" Version="16.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="SystemAspNetModule" Version="16.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="16.1.6.0" IsNewNode="True" />
+  </SchemaModules>
 </Application>

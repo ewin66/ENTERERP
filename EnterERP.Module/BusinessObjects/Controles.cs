@@ -15,7 +15,7 @@ using DevExpress.Persistent.Validation;
 namespace EnterERP.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    [ImageName("BO_User")]
+    [NavigationItem("Sistema")]
     [XafDisplayName("Datos Generales")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]

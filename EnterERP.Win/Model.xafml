@@ -1,5 +1,103 @@
-﻿<Application>
-	<Options Skin="Visual Studio 2013 Blue" UIType="TabbedMDI" FormStyle="Ribbon">
-	  <RibbonOptions RibbonControlStyle="Office2013" />
-	</Options>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Logo="BO_Sale" PreferredLanguage="(Default language)">
+  <BOModel>
+    <Class Name="EnterERP.Module.BusinessObjects.Controles" ImageName="Action_New" />
+    <Class Name="EnterERP.Module.BusinessObjects.ControlesFiscales" ImageName="Action_New" />
+    <Class Name="EnterERP.Module.BusinessObjects.Cotizaciones" ImageName="Action_New" />
+    <Class Name="EnterERP.Module.BusinessObjects.CXCConceptos" ImageName="Action_New" />
+    <Class Name="EnterERP.Module.BusinessObjects.CXCDocumentos" ImageName="Action_New" />
+    <Class Name="EnterERP.Module.BusinessObjects.Monedas" ImageName="Action_New" />
+    <Class Name="EnterERP.Module.BusinessObjects.Pendientes" ImageName="Action_New" />
+    <Class Name="EnterERP.Module.BusinessObjects.Tasas" ImageName="Action_New" />
+  </BOModel>
+  <NavigationItems RootGroupsStyle="Standard" DefaultLeafImageName="Action_New" NavigationStyle="TreeList" StartupNavigationItem="Pendientes_ListView" />
+  <Options Skin="Office 2013 Light Gray" UIType="TabbedMDI" FormStyle="Ribbon" EnableHtmlFormatting="True">
+    <Dashboards EnableCreation="True" />
+    <RibbonOptions RibbonControlStyle="Office2013" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="16.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerModuleBase" Version="16.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerWindowsFormsModule" Version="16.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="16.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="16.1.6.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DetailView Id="Facturas_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="66.798418972332016">
+            <LayoutGroup Id="Facturas" RelativeSize="64.49704142011835" Direction="Vertical">
+              <LayoutGroup Id="Facturas_col1" RelativeSize="100">
+                <LayoutGroup Id="Auto7bbd65e6-4ff6-4ab4-9305-127634f1e4ec" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="17.391304347826086" IsNewNode="True">
+                  <LayoutItem Id="Id" ViewItem="Id" Index="0" RelativeSize="50" IsNewNode="True" />
+                  <LayoutItem Id="Anulada" ViewItem="Anulada" Index="1" RelativeSize="50" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Auto653747ba-7a0a-447a-b2ec-006c3b98c38d" ShowCaption="False" Caption="" Index="1" RelativeSize="82.6086956521739" IsNewNode="True">
+                  <LayoutItem Id="Factura" ViewItem="Factura" Index="0" RelativeSize="15.789473684210526" IsNewNode="True" />
+                  <LayoutGroup Id="Autof2b89c0f-2cb3-46b8-aded-76e3d68c6a50" ShowCaption="False" Caption="" Direction="Horizontal" Index="1" RelativeSize="15.789473684210526" IsNewNode="True">
+                    <LayoutItem Id="Fecha" ViewItem="Fecha" Index="0" RelativeSize="50.692520775623265" IsNewNode="True" />
+                    <LayoutItem Id="TipoDeFactura" ViewItem="TipoDeFactura" Index="1" RelativeSize="49.307479224376735" IsNewNode="True" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Auto89a24d7c-0205-432c-91a3-4de821e5cf7d" ShowCaption="False" Caption="" Index="2" RelativeSize="68.421052631578945" IsNewNode="True">
+                    <LayoutItem Id="Vence" ViewItem="Vence" Index="0" RelativeSize="23.076923076923077" IsNewNode="True" />
+                    <LayoutItem Id="Cliente" ViewItem="Cliente" Index="1" RelativeSize="23.076923076923077" IsNewNode="True" />
+                    <LayoutItem Id="Direccion" ViewItem="Direccion" Index="2" RelativeSize="23.076923076923077" IsNewNode="True" />
+                    <LayoutGroup Id="Autofdceed49-1ce7-4fab-9132-dbc5dcdff9b7" ShowCaption="False" Caption="" Direction="Horizontal" Index="3" RelativeSize="30.76923076923077" IsNewNode="True">
+                      <LayoutItem Id="Moneda" ViewItem="Moneda" Index="0" RelativeSize="50.692520775623265" IsNewNode="True" />
+                      <LayoutItem Id="TasaCambiaria" ViewItem="TasaCambiaria" Index="1" RelativeSize="49.307479224376735" IsNewNode="True" />
+                    </LayoutGroup>
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutItem Id="Moneda" RelativeSize="17.391304347826086" Index="6" Removed="True" />
+                <LayoutItem Id="Cliente" RelativeSize="13.043478260869565" Removed="True" />
+                <LayoutItem Id="Direccion" RelativeSize="13.043478260869565" Removed="True" />
+                <LayoutItem Id="Factura" RelativeSize="13.043478260869565" Removed="True" />
+                <LayoutItem Id="Fecha" RelativeSize="11.538461538461538" Removed="True" />
+                <LayoutItem Id="Id" RelativeSize="17.391304347826086" Removed="True" />
+                <LayoutItem Id="TipoDeFactura" RelativeSize="11.538461538461538" Removed="True" />
+                <LayoutItem Id="Vence" RelativeSize="13.043478260869565" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Facturas_col2" RelativeSize="48.614958448753463" Caption="Facturas_col2" Direction="Horizontal" Removed="True">
+                <LayoutItem Id="Anulada" RelativeSize="100" Index="0" Removed="True" />
+                <LayoutItem Id="Descuento" Index="2" RelativeSize="11.538461538461538" Removed="True" />
+                <LayoutItem Id="Impuesto" Index="2" RelativeSize="11.538461538461538" Removed="True" />
+                <LayoutItem Id="Observaciones" Index="2" RelativeSize="73.07692307692308" Removed="True" />
+                <LayoutItem Id="Total" Index="2" RelativeSize="11.538461538461538" Removed="True" />
+                <LayoutItem Id="SubTotal" Removed="True" />
+                <LayoutItem Id="TasaCambiaria" RelativeSize="17.391304347826086" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="DatosFiscales" RelativeSize="35.502958579881657" Index="1">
+              <LayoutGroup Id="DatosFiscales_col1" RelativeSize="50">
+                <LayoutItem Id="CAI" RelativeSize="36.363636363636367" />
+                <LayoutItem Id="Sucursal" RelativeSize="27.272727272727273" />
+                <LayoutItem Id="Limite" RelativeSize="36.363636363636367" />
+              </LayoutGroup>
+              <LayoutGroup Id="DatosFiscales_col2" RelativeSize="50">
+                <LayoutItem Id="RangoInicial" RelativeSize="36.363636363636367" />
+                <LayoutItem Id="RangoFinal" RelativeSize="27.272727272727273" />
+                <LayoutItem Id="PuntoDeEmision" RelativeSize="36.363636363636367" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="FacturasDetallesDatos_Group" Direction="Vertical" RelativeSize="17.391304347826086">
+            <LayoutItem Id="FacturasDetallesDatos" RelativeSize="100" />
+          </LayoutGroup>
+          <LayoutGroup Id="Autodfde6931-f780-4ebe-a671-cb7c902990c9" ShowCaption="False" Caption="" Direction="Horizontal" Index="2" RelativeSize="9.4861660079051386" IsNewNode="True">
+            <LayoutGroup Id="Auto0f57124e-6714-4d17-837c-4be7e6224c9e" ShowCaption="False" Caption="" Index="0" RelativeSize="50" IsNewNode="True">
+              <LayoutItem Id="SubTotal" ViewItem="SubTotal" Index="0" RelativeSize="50" IsNewNode="True" />
+              <LayoutItem Id="Impuesto" ViewItem="Impuesto" Index="1" RelativeSize="50" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Auto63a5be4c-e4bc-4a71-9eca-3a645ccbec62" ShowCaption="False" Caption="" Index="1" RelativeSize="50" IsNewNode="True">
+              <LayoutItem Id="Descuento" ViewItem="Descuento" Index="0" RelativeSize="50" IsNewNode="True" />
+              <LayoutItem Id="Total" ViewItem="Total" Index="1" RelativeSize="50" IsNewNode="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutItem Id="Observaciones" ViewItem="Observaciones" Index="3" RelativeSize="6.3241106719367588" IsNewNode="True" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Facturas_FacturasDetallesDatos_ListView" NewItemRowPosition="Bottom" AllowEdit="True" />
+  </Views>
 </Application>

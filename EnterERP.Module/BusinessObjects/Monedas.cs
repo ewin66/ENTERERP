@@ -15,7 +15,8 @@ using DevExpress.Persistent.Validation;
 namespace EnterERP.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    [ImageName("BO_Money")]
+    [XafDefaultProperty("Codigo")]
+    [NavigationItem("Sistema")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]

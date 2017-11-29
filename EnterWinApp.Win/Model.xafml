@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems RootGroupsStyle="OutlookAnimated" />
+  <Options Skin="Visual Studio 2013 Blue" UIType="MultipleWindowSDI" FormStyle="Ribbon" MdiDefaultNewWindowTarget="Default">
+    <RibbonOptions RibbonControlStyle="Office2013" />
+  </Options>
+</Application>
