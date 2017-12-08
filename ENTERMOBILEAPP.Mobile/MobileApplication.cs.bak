@@ -23,7 +23,7 @@ namespace ENTERMOBILEAPP.Mobile {
         private DevExpress.ExpressApp.CloneObject.CloneObjectModule cloneObjectModule;
         private DevExpress.ExpressApp.CloneObject.Mobile.CloneObjectMobileModule cloneObjectMobileModule;
         private DevExpress.ExpressApp.ConditionalAppearance.ConditionalAppearanceModule conditionalAppearanceModule;
-        private DevExpress.ExpressApp.ConditionalAppearance.Mobile.ConditionalAppearanceMobileModule conditionalAppearanceMobileModule;
+        private DevExpress.ExpressApp.Mobile.ConditionalAppearance.ConditionalAppearanceMobileModule conditionalAppearanceMobileModule;
         private DevExpress.ExpressApp.PivotChart.PivotChartModuleBase pivotChartModuleBase;
         private DevExpress.ExpressApp.PivotGrid.PivotGridModule pivotGridModule;
         private DevExpress.ExpressApp.ReportsV2.ReportsModuleV2 reportsModuleV2;
@@ -32,7 +32,7 @@ namespace ENTERMOBILEAPP.Mobile {
         private DevExpress.ExpressApp.ScriptRecorder.ScriptRecorderModuleBase scriptRecorderModuleBase;
         private DevExpress.ExpressApp.StateMachine.StateMachineModule stateMachineModule;
         private DevExpress.ExpressApp.Validation.ValidationModule validationModule;
-        private DevExpress.ExpressApp.Validation.Mobile.ValidationMobileModule validationMobileModule;
+        private DevExpress.ExpressApp.Mobile.Validation.ValidationMobileModule validationMobileModule;
         private DevExpress.ExpressApp.ViewVariantsModule.ViewVariantsModule viewVariantsModule;
 
         #region Default XAF configuration options (https://www.devexpress.com/kb=T501418)
@@ -111,7 +111,7 @@ namespace ENTERMOBILEAPP.Mobile {
             this.cloneObjectModule = new DevExpress.ExpressApp.CloneObject.CloneObjectModule();
             this.cloneObjectMobileModule = new DevExpress.ExpressApp.CloneObject.Mobile.CloneObjectMobileModule();
             this.conditionalAppearanceModule = new DevExpress.ExpressApp.ConditionalAppearance.ConditionalAppearanceModule();
-            this.conditionalAppearanceMobileModule = new DevExpress.ExpressApp.ConditionalAppearance.Mobile.ConditionalAppearanceMobileModule();
+            this.conditionalAppearanceMobileModule = new DevExpress.ExpressApp.Mobile.ConditionalAppearance.ConditionalAppearanceMobileModule();
             this.pivotChartModuleBase = new DevExpress.ExpressApp.PivotChart.PivotChartModuleBase();
             this.pivotGridModule = new DevExpress.ExpressApp.PivotGrid.PivotGridModule();
             this.reportsModuleV2 = new DevExpress.ExpressApp.ReportsV2.ReportsModuleV2();
@@ -120,7 +120,7 @@ namespace ENTERMOBILEAPP.Mobile {
             this.scriptRecorderModuleBase = new DevExpress.ExpressApp.ScriptRecorder.ScriptRecorderModuleBase();
             this.stateMachineModule = new DevExpress.ExpressApp.StateMachine.StateMachineModule();
             this.validationModule = new DevExpress.ExpressApp.Validation.ValidationModule();
-            this.validationMobileModule = new DevExpress.ExpressApp.Validation.Mobile.ValidationMobileModule();
+            this.validationMobileModule = new DevExpress.ExpressApp.Mobile.Validation.ValidationMobileModule();
             this.viewVariantsModule = new DevExpress.ExpressApp.ViewVariantsModule.ViewVariantsModule();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 

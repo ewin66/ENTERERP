@@ -1,13 +1,13 @@
 ﻿<%@ Control Language="C#" CodeBehind="DialogTemplate.ascx.cs" ClassName="DialogTemplate" Inherits="XAF_Bootstrap.Templates.DialogTemplate"%>
 <%@ Register Assembly="XAF Bootstrap" Namespace="XAF_Bootstrap.Controls" TagPrefix="cc1" %>
-<%@ Register Assembly="DevExpress.Web.v17.1" Namespace="DevExpress.Web" TagPrefix="dx" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v17.1" Namespace="DevExpress.ExpressApp.Web.Templates.ActionContainers"
+<%@ Register Assembly="DevExpress.Web.v17.2" Namespace="DevExpress.Web" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v17.2" Namespace="DevExpress.ExpressApp.Web.Templates.ActionContainers"
     TagPrefix="cc2" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v17.1" Namespace="DevExpress.ExpressApp.Web.Templates.Controls"
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v17.2" Namespace="DevExpress.ExpressApp.Web.Templates.Controls"
     TagPrefix="tc" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v17.1" Namespace="DevExpress.ExpressApp.Web.Controls"
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v17.2" Namespace="DevExpress.ExpressApp.Web.Controls"
     TagPrefix="cc4" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v17.1" Namespace="DevExpress.ExpressApp.Web.Templates"
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v17.2" Namespace="DevExpress.ExpressApp.Web.Templates"
     TagPrefix="cc3" %>
     <cc3:XafUpdatePanel ID="UPPopupWindowControl" runat="server">
         <cc4:XafPopupWindowControl runat="server" ID="PopupWindowControl" />

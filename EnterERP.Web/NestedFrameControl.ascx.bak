@@ -1,11 +1,11 @@
 ﻿<%@ Control Language="C#" CodeBehind="NestedFrameControl.ascx.cs" ClassName="NestedFrameControl" Inherits="XAF_Bootstrap.Templates.NestedFrameControl"%>
 <%@ Register Assembly="XAF Bootstrap" Namespace="XAF_Bootstrap.Controls" TagPrefix="cc1" %>
-<%@ Register Assembly="DevExpress.Web.v16.2" Namespace="DevExpress.Web" TagPrefix="dx" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v16.2" Namespace="DevExpress.ExpressApp.Web.Templates.ActionContainers"
+<%@ Register Assembly="DevExpress.Web.v17.1" Namespace="DevExpress.Web" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v17.1" Namespace="DevExpress.ExpressApp.Web.Templates.ActionContainers"
     TagPrefix="cc2" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v16.2" Namespace="DevExpress.ExpressApp.Web.Controls"
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v17.1" Namespace="DevExpress.ExpressApp.Web.Controls"
     TagPrefix="cc4" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v16.2" Namespace="DevExpress.ExpressApp.Web.Templates"
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v17.1" Namespace="DevExpress.ExpressApp.Web.Templates"
     TagPrefix="cc3" %>
 
 <div class="NestedFrame">    
